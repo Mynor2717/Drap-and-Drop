@@ -3,9 +3,9 @@ import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 
 
 const inicialTodos = [
-  { id: 1, text: 'Aprender algo' },
-  { id: 2, text: 'Aprender algo' },
-  { id: 3, text: 'Aprender algo' }
+  { id: 1, text: 'Aprender algo de React' },
+  { id: 2, text: 'Aprender algo de JS' },
+  { id: 3, text: 'Aprender algo de GSAP' }
 
 ]
 
