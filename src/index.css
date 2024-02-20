@@ -1,10 +1,11 @@
 li {
     border: 2px solid #d8a19a;
-    padding: 0l.5rem;
+    padding: 2.5rem;
+    font-size: x-large;
 }
 
 ul {
     list-style: none;
-    padding: 1rem;
+    padding: 2rem;
     border: 2px solid chocolate;
 }
