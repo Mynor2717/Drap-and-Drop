@@ -1,22 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 
 
-const inicialTodos = [
-  { id: 1, text: 'Aprender algo de React' },
-  { id: 2, text: 'Aprender algo de JS' },
-  { id: 3, text: 'Aprender algo de GSAP' }
-
-]
+const inicialTodos = JSON.parse(localStorage.getItem('todos')) || []
 
 const App = () => {
 
   const [todos, setTodos] = useState(inicialTodos)
 
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos])
+
   const habldeDragEnd = (result) => {
     if (!result.destination) return;
     const startIndex = result.source.index;
     const endIndex = result.destination.index;
+
+    const copyArray = [...todos]
+
+    const [reorderItem] = copyArray.splice(startIndex, 1 );
+     
+    copyArray.splice(endIndex, 0, reorderItem)
+    
+    setTodos(copyArray);
 
   };
 
