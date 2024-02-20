@@ -21,38 +21,38 @@ const App = () => {
   };
 
 
-return (
-  <DragDropContext onDragEnd={habldeDragEnd}>
-    <h1>Todo</h1>
-    <Droppable droppableId="todos">
-      {
-        (droppableProvider) => (
-          <ul ref={droppableProvider.innerRef}
-            {...droppableProvider.droppableProps}>
+  return (
+    <DragDropContext onDragEnd={habldeDragEnd}>
+      <h1>Todo</h1>
+      <Droppable droppableId="todos">
+        {
+          (droppableProvider) => (
+            <ul ref={droppableProvider.innerRef}
+              {...droppableProvider.droppableProps}>
 
-            {todos.map((todo, index) => (
-              <Draggable index={index} key={todo.id} draggableId={`${todo.id}`}>
-                {
-                  (draggableProvider) => (
-                    <li
-                      ref={draggableProvider.innerRef}
-                      {...draggableProvider.dragHandleProps}
-                      {...draggableProvider.draggableProps}
-                    >{todo.text}</li>
-                  )
+              {todos.map((todo, index) => (
+                <Draggable index={index} key={todo.id} draggableId={`${todo.id}`}>
+                  {
+                    (draggableProvider) => (
+                      <li
+                        ref={draggableProvider.innerRef}
+                        {...draggableProvider.dragHandleProps}
+                        {...draggableProvider.draggableProps}
+                      >{todo.text}</li>
+                    )
 
-                }
+                  }
 
-              </Draggable>
-              //Siempre que se envuelva un elemento hay que mover la Key al elemento principal
-            ))}
-            {droppableProvider.placeholder}
-          </ul>
-        )
-      }
-    </Droppable>
-  </DragDropContext>
-)
+                </Draggable>
+                //Siempre que se envuelva un elemento hay que mover la Key al elemento principal
+              ))}
+              {droppableProvider.placeholder}
+            </ul>
+          )
+        }
+      </Droppable>
+    </DragDropContext>
+  )
 
 }
 
